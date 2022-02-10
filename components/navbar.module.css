@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    height: 3rem;
+    background-color: #252529;
+}
+
+.container a {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+}
+
+.container a:hover{
+    background-color: #333336;
+}
