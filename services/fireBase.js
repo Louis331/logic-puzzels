@@ -43,5 +43,7 @@ export async function getAllWords(){
     let doucmentRef = doc(db, process.env.WORD_TABLE, 'words')
     let documentSnapshot = await getDoc(doucmentRef)
 
-    return documentSnapshot.data()['words']
+    return process.env.FIREBASE_AUTH_DOMAIN
+
+    // return documentSnapshot.data()['words']
 }
