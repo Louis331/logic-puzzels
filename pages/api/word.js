@@ -10,7 +10,6 @@ export default async function handler(req, res) {
     } else { 
       res.status(200).json(response)
     }
-    
   } else if (req.method === 'DELETE') {
     let response = deleteWord(req)
     if (response.error){
