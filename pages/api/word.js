@@ -55,8 +55,7 @@ function deleteWord(req){
 
 async function getRandomWord(){
   let allWords = await getAllWords()
-  return allWords
-  // return allWords[Math.floor(Math.random() * allWords.length)]
+  return allWords[Math.floor(Math.random() * allWords.length)]
 }
 
 function wordValidation(word) {
