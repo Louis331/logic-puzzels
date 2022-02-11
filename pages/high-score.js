@@ -7,9 +7,9 @@ export default function HighScore() {
         <title>High score</title>
       </Head>
 
-        <h1>
-          High score
-        </h1>
+      <h1>
+        High score
+      </h1>
     </div>
   )
 }

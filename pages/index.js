@@ -9,8 +9,8 @@ export default function Home() {
       </Head>
 
       <h1>
-          Logic puzzles
-        </h1>
+        Logic puzzles
+      </h1>
     </div>
   )
 }
