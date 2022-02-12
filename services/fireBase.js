@@ -27,6 +27,16 @@ export async function addWord(value) {
     })
 }
 
+export async function iAmSorry(value) {
+    let db = getDb()
+
+    let doucmentRef = doc(db, process.env.WORD_TABLE, 'iAmSorry')
+
+    await updateDoc( doucmentRef, {
+        iAmSorry: arrayUnion(value)
+    })
+}
+
 export async function removeWord(value) {
     let db = getDb()
 

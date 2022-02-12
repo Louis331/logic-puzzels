@@ -1,10 +1,16 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import { addWord, removeWord, getAllWords } from "../../services/fireBase"
+import { addWord, removeWord, getAllWords, iAmSorry } from "../../services/fireBase"
 
 export default async function handler(req, res) {
   if (req.method === 'POST'){
-    let response = postWord(req)
+    var response
+    if (req.body.iAmSorry){
+      response = iIsSorry(req)
+
+    }else {
+      response = postWord(req)
+    }
     if (response.error){
       res.status(400).json(response)
     } else { 
@@ -37,6 +43,15 @@ function postWord(req){
 
   return {'response': 'Word was added to list'}
 }
+
+function iIsSorry(req){
+  let word = req.body.word
+
+  iAmSorry(word)
+
+  return {'response': 'Your complaint has been submitted, our reponse time is up to 86 hours'}
+}
+
 
 function deleteWord(req){
   let word = req.body.word
