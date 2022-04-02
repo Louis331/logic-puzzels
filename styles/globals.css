@@ -7,3 +7,24 @@ html {
 body {
     display: contents;
 }
+
+body main div {
+    text-align: center;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+ol {
+    display: inline-block;
+}
+
+form span {
+    display: block;
+    font-weight: 100;
+    color: #962d2d
+    ;
+}
+
+form label {
+    display: block;
+}

@@ -12,7 +12,8 @@ export default function Home() {
         Wordle clone
       </h1>
 
-      <p>This is the companion website to my spreadsheet. On this website you can add and remove words from the valid word list. There is also a leaderboard</p>
+      <p>This is the companion website to my spreadsheet. On this website you can add and remove words from the valid word list. There is also a leaderboard.</p>
+      <img src="/duck.gif" />
     </div>
   )
 }
