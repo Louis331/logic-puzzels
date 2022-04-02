@@ -8,7 +8,7 @@ const highScoreSchema = {
       'type': 'number'
     },
     'datetime': {
-      'type': 'string'
+      'type': 'number'
     },
     'name': {
       'type': 'string'
