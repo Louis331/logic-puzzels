@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     if (req.body.iAmSorry){
       response = iIsSorry(req)
 
-    }else {
+    } else {
       response = postWord(req)
     }
     if (response.error){
@@ -33,10 +33,10 @@ export default async function handler(req, res) {
 function postWord(req){
   let word = req.body.word
 
-  let isWordInvaild = wordValidation(word)
+  let errorMessage = wordValidation(word)
 
-  if (isWordInvaild) {
-    return {'error': isWordInvaild}
+  if (errorMessage) {
+    return {'error': errorMessage}
   }
 
   addWord(word)

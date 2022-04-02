@@ -1,3 +1,4 @@
+import { async } from '@firebase/util'
 import { initializeApp } from 'firebase/app'
 import { getFirestore, doc, arrayUnion, updateDoc, arrayRemove, getDoc } from 'firebase/firestore'
 
@@ -54,4 +55,23 @@ export async function getAllWords(){
     let documentSnapshot = await getDoc(doucmentRef)
 
     return documentSnapshot.data()['words']
+}
+
+export async function getScores() {
+    let db = getDb()
+
+    let doucmentRef = doc(db, process.env.WORD_TABLE, 'highScore')
+    let documentSnapshot = await getDoc(doucmentRef)
+
+    return documentSnapshot.data()['highScore']
+}
+
+export async function addHighScore(value) {
+    let db = getDb()
+
+    let doucmentRef = doc(db, process.env.WORD_TABLE, 'highScore')
+
+    await updateDoc( doucmentRef, {
+        highScore: arrayUnion(value)
+    })
 }
