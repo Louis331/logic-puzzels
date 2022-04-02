@@ -3,7 +3,6 @@ import { getScores, addHighScore } from "../../services/fireBase"
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     console.log(req.body)
-    console.log(req)
     let score  = req.body
     let notValid = (validateHighScore(score))
     if (notValid){
