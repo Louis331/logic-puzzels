@@ -38,11 +38,12 @@ export default async function handler(req, res) {
       }
       return first.score > second.score ? 1: -1
     })
-
+    let id = 0
     scores.forEach(item => {
       let time = item.datetime
       time = Math.round(time / 10) / 100
-      item.datetime = time 
+      item.datetime = time
+      item['id'] = id ++
     });
     res.status(200).json({scores: scores})
   } else {

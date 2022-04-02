@@ -23,7 +23,7 @@ function HighScore({ highScores }) {
       </h1>
       <ul>
         { highScores.map((highScore) => (
-          <li>{highScore.name} beat it in {highScore.datetime} seconds with {highScore.score} {highScore.score === 1 ? 'guess': 'guesses'}</li>
+          <li key={highScore.id}>{highScore.name} beat it in {highScore.datetime} seconds with {highScore.score} {highScore.score === 1 ? 'guess': 'guesses'}</li>
         ))}
       </ul>
     </div>
