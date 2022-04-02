@@ -32,6 +32,18 @@ export default async function handler(req, res) {
 
   } else if (req.method === 'GET') {
     let scores = await getScores()
+    scores.sort(function (first, second) {
+      if (first.score == second.score) {
+        return first.datetime - second.datetime
+      }
+      return first.score > second.score ? 1: -1
+    })
+
+    scores.forEach(item => {
+      let time = item.datetime
+      time = Math.round(time / 10) / 100
+      item.datetime = time 
+    });
     res.status(200).json({scores: scores})
   } else {
     res.status(405).json({ error: 'Method not allowed' })
