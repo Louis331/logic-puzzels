@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   let highScores = await (await fetch(process.env.URL + '/api/high-score')).json()
   highScores = highScores.scores
 
