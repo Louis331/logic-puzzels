@@ -1,8 +1,24 @@
+import { validate } from "jsonschema"
 import { getScores, addHighScore } from "../../services/fireBase"
+
+const highScoreSchema = {
+  'type': 'object',
+  'properties': {
+    'score': {
+      'type': 'number'
+    },
+    'datetime': {
+      'type': 'string'
+    },
+    'name': {
+      'type': 'string'
+    }
+  },
+  "required": [ "score", "datetime", 'name' ]
+}
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    console.log(req.body)
     let score  = req.body
     let notValid = (validateHighScore(score))
     if (notValid){
@@ -23,8 +39,11 @@ export default async function handler(req, res) {
 }
 
 function validateHighScore(highScoreObject) {
+  let isValid = validate(highScoreObject, highScoreSchema).valid
   if (!highScoreObject) {
     return 'Need highscore'
+  } else if (!isValid) {
+    return 'Json not valid'
   } else {
     return null
   }
